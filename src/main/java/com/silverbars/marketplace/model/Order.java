@@ -1,0 +1,103 @@
+package com.silverbars.marketplace.model;
+
+import java.util.UUID;
+
+public final class Order
+{
+    public enum Type
+    {
+        BUY,SELL;
+    }
+
+    private final String userId;
+
+    private final OrderKey key=new OrderKey();
+
+    private final long price;
+
+    private final long quantity;
+
+    private Type type;
+
+
+    public Order(String userId, long price, long quantity, Type type)
+    {
+        this.userId=userId;
+        this.quantity=quantity;
+          this.price=price;
+          this.type=type;
+
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public long getPrice() {
+        return price;
+    }
+
+    public long getQuantity() {
+        return quantity;
+    }
+
+
+    public Type getType() {
+        return type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Order order = (Order) o;
+
+        if (price != order.price) return false;
+        if (quantity != order.quantity) return false;
+        if (!userId.equals(order.userId)) return false;
+        if (!key.equals(order.key)) return false;
+        return type == order.type;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userId.hashCode();
+        result = 31 * result + key.hashCode();
+        result = 31 * result + (int) (price ^ (price >>> 32));
+        result = 31 * result + (int) (quantity ^ (quantity >>> 32));
+        result = 31 * result + type.hashCode();
+        return result;
+    }
+
+    public OrderKey getKey() {
+        return key;
+    }
+
+    public class OrderKey
+    {
+        private final UUID uuid=UUID.randomUUID();
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            OrderKey orderKey = (OrderKey) o;
+
+            return uuid.equals(orderKey.uuid);
+        }
+
+        @Override
+        public int hashCode() {
+            return uuid.hashCode();
+        }
+
+        @Override
+        public String toString() {
+            return "OrderKey{" +
+                    "uuid=" + uuid +
+                    '}';
+        }
+    }
+}
