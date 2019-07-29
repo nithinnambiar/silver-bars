@@ -2,7 +2,7 @@
 A java api to
 1) Register an order
 2) Cancel a registered order
-3) Get a SUmmary of the Order Board
+3) Get a summary of the Order Board 
 
 ## Using the API
 
@@ -20,5 +20,6 @@ List<OrderSummary> orderSummaryList=orderBoard.summary();
 ```
 ## Notes
  The current implemenation of the Order model uses primitive long for quantity and price. This version only supports whole numbers for price and quantity. This could be improved either using BigDecimal or Joda Money.
+ 
  Other consideration was to use Spring library to manage dependency injection. Given the simplicity of the library i decided not to use Spring in this version. 
 
