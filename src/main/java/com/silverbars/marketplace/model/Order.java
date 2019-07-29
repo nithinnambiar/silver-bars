@@ -13,18 +13,18 @@ public final class Order
 
     private final OrderKey key=new OrderKey();
 
-    private final long price;
+    private final long pricePerKg;
 
     private final long quantity;
 
     private Type type;
 
 
-    public Order(String userId, long price, long quantity, Type type)
+    public Order(String userId, long pricePerKg, long quantity, Type type)
     {
         this.userId=userId;
         this.quantity=quantity;
-          this.price=price;
+          this.pricePerKg=pricePerKg;
           this.type=type;
 
     }
@@ -33,8 +33,8 @@ public final class Order
         return userId;
     }
 
-    public long getPrice() {
-        return price;
+    public long getPricePerKg() {
+        return pricePerKg;
     }
 
     public long getQuantity() {
@@ -53,7 +53,7 @@ public final class Order
 
         Order order = (Order) o;
 
-        if (price != order.price) return false;
+        if (pricePerKg != order.pricePerKg) return false;
         if (quantity != order.quantity) return false;
         if (!userId.equals(order.userId)) return false;
         if (!key.equals(order.key)) return false;
@@ -64,7 +64,7 @@ public final class Order
     public int hashCode() {
         int result = userId.hashCode();
         result = 31 * result + key.hashCode();
-        result = 31 * result + (int) (price ^ (price >>> 32));
+        result = 31 * result + (int) (pricePerKg ^ (pricePerKg >>> 32));
         result = 31 * result + (int) (quantity ^ (quantity >>> 32));
         result = 31 * result + type.hashCode();
         return result;

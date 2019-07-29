@@ -24,7 +24,7 @@ public class OrderSummaryHelperTest {
         Assert.assertTrue(orderSummaryList.size()==2);
         OrderSummary orderSummary=orderSummaryList.get(0);
         Assert.assertEquals(buyOrder.getType(), orderSummary.getOrderType());
-        Assert.assertEquals(buyOrder.getPrice(), orderSummary.getPrice());
+        Assert.assertEquals(buyOrder.getPricePerKg(), orderSummary.getPrice());
 
     }
 
@@ -40,7 +40,7 @@ public class OrderSummaryHelperTest {
         Assert.assertTrue(orderSummaryList.size()==2);
         OrderSummary orderSummary=orderSummaryList.get(0);
         Assert.assertEquals(sellOrderTwo.getQuantity(), orderSummary.getQuantity());
-        Assert.assertEquals(sellOrderTwo.getPrice(), orderSummary.getPrice());
+        Assert.assertEquals(sellOrderTwo.getPricePerKg(), orderSummary.getPrice());
 
     }
 
@@ -56,7 +56,7 @@ public class OrderSummaryHelperTest {
         Assert.assertTrue(orderSummaryList.size()==2);
         OrderSummary orderSummary=orderSummaryList.get(0);
         Assert.assertEquals(buyOrderOne.getQuantity(), orderSummary.getQuantity());
-        Assert.assertEquals(buyOrderOne.getPrice(), orderSummary.getPrice());
+        Assert.assertEquals(buyOrderOne.getPricePerKg(), orderSummary.getPrice());
 
     }
 
@@ -72,7 +72,7 @@ public class OrderSummaryHelperTest {
         Assert.assertTrue(orderSummaryList.size()==1);
         OrderSummary orderSummary=orderSummaryList.get(0);
         Assert.assertEquals(buyOrderOne.getType(), orderSummary.getOrderType());
-        Assert.assertEquals(buyOrderOne.getPrice(), orderSummary.getPrice());
+        Assert.assertEquals(buyOrderOne.getPricePerKg(), orderSummary.getPrice());
         Assert.assertEquals(buyOrderOne.getQuantity() + buyOrderTwo.getQuantity(), orderSummary.getQuantity());
         System.out.println(orderSummaryList.toString());
 

@@ -30,7 +30,7 @@ public class OrderSummary
     public String toString() {
         return "{" +
                 "type=" + orderType +
-                ", price=" + price +
+                ", pricePerKg=" + price +
                 ", quantity=" + quantity +
                 '}';
     }

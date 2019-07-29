@@ -35,7 +35,7 @@ public final class OrderSummaryHelper {
         orderSummaryList.addAll(
                 orderCollection.stream().filter(o-> o.getType()==type).
                         collect(
-                                groupingBy(Order::getPrice,
+                                groupingBy(Order::getPricePerKg,
                                         () -> new TreeMap<>(comparator),
                                         summingLong(Order::getQuantity))
                         )
